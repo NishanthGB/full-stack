@@ -10,11 +10,12 @@ import { Video, Shield, Users, ArrowRight, Check } from 'lucide-react';
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://full-stack-i3th.onrender.com';
 const API = `${BACKEND_URL}/api`;
 
-// Debug logging
+// Debug logging - Updated for deployment fix
 console.log('Environment variables:', {
   REACT_APP_BACKEND_URL: process.env.REACT_APP_BACKEND_URL,
   BACKEND_URL,
-  API
+  API,
+  timestamp: new Date().toISOString()
 });
 
 export default function AuthPage({ onLogin }) {
