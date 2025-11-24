@@ -500,10 +500,20 @@ app.include_router(api_router)
 # Mount Socket.IO
 socket_app = socketio.ASGIApp(sio, app)
 
+# CORS configuration - allow both CORS_ORIGINS and FRONTEND_URL
+frontend_url = os.environ.get('FRONTEND_URL', '')
+cors_origins = os.environ.get('CORS_ORIGINS', '*')
+
+# If FRONTEND_URL is set, use it; otherwise use CORS_ORIGINS
+if frontend_url:
+    allowed_origins = [frontend_url]
+else:
+    allowed_origins = cors_origins.split(',') if cors_origins != '*' else ['*']
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
+    allow_origins=allowed_origins,
     allow_methods=["*"],
     allow_headers=["*"],
 )
@@ -514,6 +524,11 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+# Log CORS configuration for debugging
+logger.info(f"CORS Origins configured: {allowed_origins}")
+logger.info(f"FRONTEND_URL: {frontend_url}")
+logger.info(f"CORS_ORIGINS: {cors_origins}")
 
 @app.on_event("shutdown")
 async def shutdown_db_client():
