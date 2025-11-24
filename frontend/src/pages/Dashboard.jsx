@@ -12,7 +12,7 @@ import {
 import VideoUpload from '../components/VideoUpload';
 import VideoPlayer from '../components/VideoPlayer';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL || 'https://full-stack-i3th.onrender.com';
 const API = `${BACKEND_URL}/api`;
 
 export default function Dashboard({ user, token, socket, onLogout }) {
