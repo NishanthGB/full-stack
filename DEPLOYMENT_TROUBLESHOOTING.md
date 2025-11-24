@@ -45,7 +45,7 @@
 4. **Environment Variables**:
    ```
    PYTHON_VERSION=3.11
-   FRONTEND_URL=https://your-frontend.vercel.app
+   FRONTEND_URL=https://full-stack-5gxvmq8q8-nishanthgbs-projects.vercel.app
    ```
 
 5. **Deploy**: Click "Create Web Service"
@@ -77,7 +77,7 @@ gunicorn -k uvicorn.workers.UvicornWorker server:app --bind 0.0.0.0:$PORT --time
 
 3. **Environment Variables**:
    ```
-   REACT_APP_BACKEND_URL=https://your-backend.onrender.com
+   REACT_APP_BACKEND_URL=https://full-stack-i3th.onrender.com
    REACT_APP_ENABLE_VISUAL_EDITS=false
    ENABLE_HEALTH_CHECK=true
    NODE_ENV=production
@@ -87,19 +87,41 @@ gunicorn -k uvicorn.workers.UvicornWorker server:app --bind 0.0.0.0:$PORT --time
 
 ## 🔗 Connecting Frontend & Backend
 
-### Step 1: Deploy Backend First
-1. Deploy backend to Render
-2. Copy the Render URL (e.g., `https://fullstack-backend-xyz.onrender.com`)
+### ⚠️ **CURRENT STATUS** ⚠️
+**Frontend**: https://full-stack-5gxvmq8q8-nishanthgbs-projects.vercel.app  
+**Backend**: https://full-stack-i3th.onrender.com  
+**Issue**: Frontend environment variable `REACT_APP_BACKEND_URL` not configured
 
-### Step 2: Configure Frontend
-1. In Vercel dashboard → Environment Variables
-2. Set `REACT_APP_BACKEND_URL` to your Render backend URL
-3. Redeploy frontend
+### 🔧 **IMMEDIATE FIX NEEDED**:
 
-### Step 3: Configure Backend CORS
-1. In Render dashboard → Environment Variables  
-2. Set `FRONTEND_URL` to your Vercel frontend URL
-3. Backend will automatically restart
+#### Step 1: Configure Frontend Environment (Vercel Dashboard)
+1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
+2. Click on your `full-stack` project
+3. Go to **Settings** → **Environment Variables**
+4. Add these variables:
+   ```
+   REACT_APP_BACKEND_URL = https://full-stack-i3th.onrender.com
+   REACT_APP_ENABLE_VISUAL_EDITS = false
+   ENABLE_HEALTH_CHECK = true
+   NODE_ENV = production
+   ```
+5. **IMPORTANT**: After adding variables, go to **Deployments** → Click latest deployment → **Redeploy**
+
+#### Step 2: Configure Backend CORS (Render Dashboard)
+1. Go to [Render Dashboard](https://dashboard.render.com/)
+2. Find your `full-stack-i3th` service
+3. Go to **Environment** tab
+4. Add/Update this variable:
+   ```
+   FRONTEND_URL = https://full-stack-5gxvmq8q8-nishanthgbs-projects.vercel.app
+   ```
+5. Save - backend will automatically restart
+
+#### Step 3: Test Connection
+1. Wait 2-3 minutes for both services to restart
+2. Visit: https://full-stack-5gxvmq8q8-nishanthgbs-projects.vercel.app/auth
+3. Try registering a new account
+4. Check browser console for any remaining errors
 
 ---
 
