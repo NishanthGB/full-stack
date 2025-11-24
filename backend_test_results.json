@@ -1,0 +1,98 @@
+{
+  "timestamp": "2025-11-20T17:50:59.695707",
+  "total_tests": 15,
+  "passed_tests": 15,
+  "success_rate": 100.0,
+  "test_details": [
+    {
+      "test": "Register Editor User",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:58.381829"
+    },
+    {
+      "test": "Register User for Login Test",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:58.645656"
+    },
+    {
+      "test": "User Login",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:58.908295"
+    },
+    {
+      "test": "Get Current User Info",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:58.953228"
+    },
+    {
+      "test": "Upload Video File",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:59.004446"
+    },
+    {
+      "test": "List All Videos",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:59.084624"
+    },
+    {
+      "test": "List Videos by Status",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:59.164618"
+    },
+    {
+      "test": "List Videos by Sensitivity",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:59.202585"
+    },
+    {
+      "test": "Get Specific Video",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:59.247158"
+    },
+    {
+      "test": "Video Stream Access",
+      "success": true,
+      "details": "Status: 400",
+      "timestamp": "2025-11-20T17:50:59.284749"
+    },
+    {
+      "test": "Register Viewer User",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:59.544278"
+    },
+    {
+      "test": "Viewer Upload Test",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:59.583308"
+    },
+    {
+      "test": "Invalid Token Test",
+      "success": true,
+      "details": "Status: 401",
+      "timestamp": "2025-11-20T17:50:59.620502"
+    },
+    {
+      "test": "No Token Test",
+      "success": true,
+      "details": "Status: 401",
+      "timestamp": "2025-11-20T17:50:59.654382"
+    },
+    {
+      "test": "Delete Video",
+      "success": true,
+      "details": "Status: 200",
+      "timestamp": "2025-11-20T17:50:59.695047"
+    }
+  ]
+}

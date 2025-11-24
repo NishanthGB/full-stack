@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: fullstack-backend
+    env: python
+    plan: free
+    region: oregon
+    root: backend
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: gunicorn -k uvicorn.workers.UvicornWorker backend.server:app --bind 0.0.0.0:$PORT
+    autoDeploy: true
