@@ -1,0 +1,6 @@
+{
+  "deployedAt": "2025-11-24T13:00:19.000Z",
+  "version": "1.0.1",
+  "backend": "https://full-stack-i3th.onrender.com",
+  "note": "Fixed backend URL configuration"
+}

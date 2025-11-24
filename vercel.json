@@ -4,10 +4,24 @@
     {
       "src": "frontend/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "build" }
+      "config": { 
+        "distDir": "build"
+      }
     }
   ],
   "routes": [
     { "src": "/(.*)", "dest": "/frontend/$1" }
-  ]
+  ],
+  "env": {
+    "REACT_APP_BACKEND_URL": "https://full-stack-i3th.onrender.com",
+    "NODE_ENV": "production",
+    "REACT_APP_ENABLE_VISUAL_EDITS": "false",
+    "ENABLE_HEALTH_CHECK": "true"
+  },
+  "build": {
+    "env": {
+      "REACT_APP_BACKEND_URL": "https://full-stack-i3th.onrender.com",
+      "NODE_ENV": "production"
+    }
+  }
 }
