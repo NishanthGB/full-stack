@@ -20,27 +20,41 @@
 
 ### 🔧 Render Deployment Steps:
 
-1. **Create Web Service on Render**:
+**CRITICAL**: The current deployment is using wrong start command. Follow these exact steps:
+
+1. **Delete Current Failed Service** (if exists):
    - Go to [Render Dashboard](https://dashboard.render.com/)
-   - Click "New" → "Web Service"
+   - Delete the existing `fullstack-backend` service that's failing
+
+2. **Create New Web Service**:
+   - Click "New" → "Web Service"  
    - Connect GitHub repository: `NishanthGB/full-stack`
 
-2. **Configure Service**:
+3. **Configure Service Settings** (EXACT VALUES):
    ```
    Name: fullstack-backend
    Root Directory: backend
-   Environment: Python 3
+   Environment: Python 3.11
+   Plan: Free (or Starter)
+   Region: Oregon (or closest to you)
+   
    Build Command: pip install -r requirements.txt
-   Start Command: gunicorn -k uvicorn.workers.UvicornWorker server:app --bind 0.0.0.0:$PORT
+   Start Command: gunicorn -k uvicorn.workers.UvicornWorker server:app --bind 0.0.0.0:$PORT --timeout 120
    ```
 
-3. **Environment Variables**:
+4. **Environment Variables**:
    ```
    PYTHON_VERSION=3.11
    FRONTEND_URL=https://your-frontend.vercel.app
    ```
 
-4. **Deploy**: Click "Create Web Service"
+5. **Deploy**: Click "Create Web Service"
+
+### ⚠️ **IMPORTANT**: 
+If Render still shows `gunicorn app:app` in logs, it means the manual dashboard settings override the `render.yaml`. Always check the **Start Command** field in the dashboard matches exactly:
+```
+gunicorn -k uvicorn.workers.UvicornWorker server:app --bind 0.0.0.0:$PORT --timeout 120
+```
 
 ---
 

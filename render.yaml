@@ -2,9 +2,14 @@ services:
   - type: web
     name: fullstack-backend
     env: python
-    plan: free
+    plan: starter
     region: oregon
-    root: backend
+    rootDir: backend
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn -k uvicorn.workers.UvicornWorker server:app --bind 0.0.0.0:$PORT
+    startCommand: gunicorn -k uvicorn.workers.UvicornWorker server:app --bind 0.0.0.0:$PORT --timeout 120
     autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11
+      - key: FRONTEND_URL
+        value: https://your-frontend.vercel.app
